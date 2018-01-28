@@ -7,18 +7,8 @@ router.get('/', function(req, res, next) {
   var uppercase = req.query.uppercase;
   var reversed = req.query.reversed
 
-  var textPlain = 'hello world';
+  var textPlain = handleText('hello world',uppercase,reversed);
  
-  if (reversed == 'true') {
-    
-    textPlain = 'dlrow olleh';
-  }
-      
-  if (uppercase == 'true') {
-
-    textPlain = textPlain.toUpperCase();
-  }
-
   res.format({
     'text/plain': function(){
       res.send(textPlain);
@@ -35,24 +25,13 @@ router.get('/hello', function(req, res, next) {
   var uppercase = req.query.uppercase;
   var reversed = req.query.reversed
 
-  var textPlain = 'hello';
+  var textPlain = handleText('hello',uppercase,reversed);
  
-  if (reversed == 'true') {
-    
-    textPlain = 'olleh';
-  }
-      
-  if (uppercase == 'true') {
-
-    textPlain = textPlain.toUpperCase();
-  }
-
   res.format({
     'text/plain': function(){
       res.send(textPlain);
     }
   });
-
 
 
 });
@@ -64,18 +43,8 @@ router.get('/world', function(req, res, next) {
   var uppercase = req.query.uppercase;
   var reversed = req.query.reversed
 
-  var textPlain = 'world';
+  var textPlain = handleText('world',uppercase,reversed);
  
-  if (reversed == 'true') {
-    
-    textPlain = 'dlrow';
-  }
-      
-  if (uppercase == 'true') {
-
-    textPlain = textPlain.toUpperCase();
-  }
-
   res.format({
     'text/plain': function(){
       res.send(textPlain);
@@ -85,6 +54,22 @@ router.get('/world', function(req, res, next) {
 
 });
 
+
+
+function handleText(sValue,uppercase,reversed) {
+
+  if (reversed == 'true') {
+    
+    sValue = sValue.split("").reverse().join("");
+  }
+  if (uppercase == 'true') {
+    
+    sValue = sValue.toUpperCase();
+  }  
+  
+  return sValue;
+
+}
 
 
 module.exports = router;
