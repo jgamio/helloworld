@@ -1,15 +1,16 @@
-After copy the files need to do 
+1- After copy the files need to do 
 
 npm install
 
+to install the libraries
 
-the main procedures are  on routes/index.js
+2- the main procedures are  on routes/index.js
 to run the test do these
 
 npm star
 
 
-the test is on test/index.test.js
+3 - the test is on test/index.test.js
 to run the test do these
 
 npm test
